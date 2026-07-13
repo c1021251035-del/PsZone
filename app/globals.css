@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+  /* PSZone brand colors — cyan/teal family */
+  --color-ps-teal-1: #E3FDFD;
+  --color-ps-teal-2: #CBF1F5;
+  --color-ps-teal-3: #A6E3E9;
+  --color-ps-teal-4: #71C9CE;
+  --color-ps-teal-dark: #4aa8ae;
+  --color-ps-teal-glow: oklch(0.75 0.10 195 / 20%);
+  --color-ps-green: #16a34a;
+  --color-ps-green-light: #f0fdf4;
+  --color-ps-red: #dc2626;
+  --color-ps-yellow: #ca8a04;
+  --color-ps-slate: #0f172a;
+}
+
+/* ─── Light mode ──────────────────────────────────────────── */
+:root {
+  --background: oklch(0.982 0.003 195);
+  --foreground: oklch(0.14 0.016 200);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.14 0.016 200);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.14 0.016 200);
+  --primary: oklch(0.68 0.10 195);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.94 0.018 195);
+  --secondary-foreground: oklch(0.18 0.016 200);
+  --muted: oklch(0.95 0.010 195);
+  --muted-foreground: oklch(0.48 0.022 195);
+  --accent: oklch(0.91 0.028 195);
+  --accent-foreground: oklch(0.14 0.016 200);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.90 0.016 195);
+  --input: oklch(0.90 0.016 195);
+  --ring: oklch(0.68 0.10 195);
+  --radius: 0.75rem;
+  /* Sidebar light */
+  --sidebar: oklch(0.970 0.010 195);
+  --sidebar-foreground: oklch(0.14 0.016 200);
+  --sidebar-primary: oklch(0.68 0.10 195);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.91 0.028 195);
+  --sidebar-accent-foreground: oklch(0.14 0.016 200);
+  --sidebar-border: oklch(0.90 0.016 195);
+  --sidebar-ring: oklch(0.68 0.10 195);
+}
+
+/* ─── Dark mode (default for PSZone — premium dark aesthetic) ─ */
+.dark {
+  /* Deep teal-slate — richer than plain zinc, more character */
+  --background: oklch(0.115 0.020 205);
+  --foreground: oklch(0.94 0.008 195);
+  --card: oklch(0.155 0.018 202);
+  --card-foreground: oklch(0.94 0.008 195);
+  --popover: oklch(0.155 0.018 202);
+  --popover-foreground: oklch(0.94 0.008 195);
+  /* Teal accent — bright, saturated, signature */
+  --primary: oklch(0.76 0.105 195);
+  --primary-foreground: oklch(0.09 0.018 205);
+  --secondary: oklch(0.20 0.022 202);
+  --secondary-foreground: oklch(0.94 0.008 195);
+  --muted: oklch(0.195 0.018 202);
+  --muted-foreground: oklch(0.60 0.025 195);
+  --accent: oklch(0.235 0.022 200);
+  --accent-foreground: oklch(0.94 0.008 195);
+  --destructive: oklch(0.65 0.200 22);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.76 0.105 195);
+  /* Sidebar dark — deeper than card, clear separation */
+  --sidebar: oklch(0.088 0.018 205);
+  --sidebar-foreground: oklch(0.94 0.008 195);
+  --sidebar-primary: oklch(0.76 0.105 195);
+  --sidebar-primary-foreground: oklch(0.09 0.018 205);
+  --sidebar-accent: oklch(0.18 0.020 202);
+  --sidebar-accent-foreground: oklch(0.94 0.008 195);
+  --sidebar-border: oklch(1 0 0 / 6%);
+  --sidebar-ring: oklch(0.76 0.105 195);
+}
+
+/* ─── Base layer ─────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+  }
+  /* Elegant selection color */
+  ::selection {
+    background-color: oklch(0.76 0.105 195 / 30%);
+    color: oklch(0.94 0.008 195);
+  }
+}
+
+/* ─── Scrollbar styling (dark mode only) ─────────────────── */
+@layer utilities {
+  .dark ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .dark ::-webkit-scrollbar-track {
+    background: oklch(0.115 0.020 205);
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: oklch(0.30 0.025 195);
+    border-radius: 3px;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.76 0.105 195 / 60%);
+  }
+}
+
+/* ─── Slot grid utilities ────────────────────────────────── */
+@layer utilities {
+  /* Tersedia */
+  .slot-available {
+    @apply bg-primary/8 border border-primary/25 text-foreground
+           hover:bg-primary/16 hover:border-primary/50 hover:shadow-sm
+           cursor-pointer transition-all duration-200;
+  }
+  /* Terisi */
+  .slot-taken {
+    @apply bg-muted/50 border border-border/50 text-muted-foreground
+           cursor-not-allowed opacity-40 select-none;
+  }
+  /* Dipilih */
+  .slot-selected {
+    @apply bg-primary border-0 text-primary-foreground
+           cursor-pointer shadow-md ring-2 ring-primary/40
+           ring-offset-1 ring-offset-background;
+  }
+
+  /* Premium glow effect untuk elemen penting */
+  .glow-primary {
+    box-shadow: 0 0 24px oklch(0.76 0.105 195 / 20%),
+                0 0 48px oklch(0.76 0.105 195 / 10%);
+  }
+
+  /* Subtle noise texture overlay untuk depth */
+  .glass-card {
+    @apply relative overflow-hidden;
+    background: oklch(0.155 0.018 202 / 80%);
+    backdrop-filter: blur(16px);
+    border: 1px solid oklch(1 0 0 / 8%);
+    box-shadow:
+      inset 0 1px 0 oklch(1 0 0 / 10%),
+      0 4px 24px oklch(0 0 0 / 30%);
+  }
+
+  /* Teal gradient text */
+  .text-gradient-teal {
+    background: linear-gradient(
+      135deg,
+      oklch(0.76 0.105 195) 0%,
+      oklch(0.85 0.07 185) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle animated border for interactive elements */
+  .border-glow {
+    border-color: oklch(0.76 0.105 195 / 40%);
+    box-shadow: 0 0 0 1px oklch(0.76 0.105 195 / 20%);
+  }
+}

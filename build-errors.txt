@@ -1,0 +1,106 @@
+﻿
+> pszone-booking@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.10 (Turbopack)
+- Environments: .env
+
+  Creating an optimized production build ...
+node.exe : 
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Users\faras\AppData\Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> Build error occurred
+Error: Turbopack build failed with 4 errors:
+./app/admin/bookings/page.tsx:25:1
+Export getAllUnits doesn't exist in target module
+  [90m23 |[0m [36mimport[0m { toast } [36mfrom[0m [32m"sonner"[0m;
+  [90m24 |[0m [36mimport[0m { formatRupiah, formatTanggalSingkat, getHariIni } [36mfrom[0m [32m"@/lib/helpers"[
+0m;
+[31m[1m>[0m [90m25 |[0m [36mimport[0m { getAllBookings, cancelBooking, getAllUnits } [36mfrom[0m [32m"@/lib/a
+ctions/admin"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m26 |[0m
+  [90m27 |[0m [36mtype[0m [33mBooking[0m = {
+  [90m28 |[0m   id: string;
+
+The export getAllUnits was not found in module [project]/lib/actions/admin.ts [app-client] (ecmascript).
+Did you mean to import getAllBookings?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the req
+uested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/bookings/page.tsx [Client Component Browser]
+    ./app/admin/bookings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/bookings/page.tsx [Client Component SSR]
+    ./app/admin/bookings/page.tsx [Server Component]
+
+
+./app/admin/bookings/page.tsx:25:1
+Export getAllUnits doesn't exist in target module
+  [90m23 |[0m [36mimport[0m { toast } [36mfrom[0m [32m"sonner"[0m;
+  [90m24 |[0m [36mimport[0m { formatRupiah, formatTanggalSingkat, getHariIni } [36mfrom[0m [32m"@/lib/helpers"[
+0m;
+[31m[1m>[0m [90m25 |[0m [36mimport[0m { getAllBookings, cancelBooking, getAllUnits } [36mfrom[0m [32m"@/lib/a
+ctions/admin"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m26 |[0m
+  [90m27 |[0m [36mtype[0m [33mBooking[0m = {
+  [90m28 |[0m   id: string;
+
+The export getAllUnits was not found in module [project]/lib/actions/admin.ts [app-ssr] (ecmascript).
+Did you mean to import getAllBookings?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the req
+uested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./app/admin/bookings/page.tsx [Client Component Browser]
+    ./app/admin/bookings/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/admin/bookings/page.tsx [Client Component SSR]
+    ./app/admin/bookings/page.tsx [Server Component]
+
+
+./app/admin/page.tsx:2:1
+Export getServerSession doesn't exist in target module
+  [90m1 |[0m [36mimport[0m { redirect } [36mfrom[0m [32m"next/navigation"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { getServerSession } [36mfrom[0m [32m"next-auth"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { authOptions } [36mfrom[0m [32m"@/lib/auth"[0m;
+  [90m4 |[0m [36mimport[0m { getDashboardStats } [36mfrom[0m [32m"@/lib/actions/admin"[0m;
+  [90m5 |[0m [36mimport[0m { [33mCalendar[0m, [33mGamepad2[0m, [33mClock[0m, [33mTrendingUp[0m } [36mfrom
+[0m [32m"lucide-react"[0m;
+
+The export getServerSession was not found in module [project]/node_modules/next-auth/index.js [app-rsc] (ecmascript).
+Did you mean to import CredentialsSignin?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the req
+uested export doesn't exist.
+
+
+./app/api/admin/change-password/route.ts:2:1
+Export getServerSession doesn't exist in target module
+  [90m1 |[0m [36mimport[0m { [33mNextResponse[0m } [36mfrom[0m [32m"next/server"[0m;
+[31m[1m>[0m [90m2 |[0m [36mimport[0m { getServerSession } [36mfrom[0m [32m"next-auth"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m [36mimport[0m { authOptions } [36mfrom[0m [32m"@/lib/auth"[0m;
+  [90m4 |[0m [36mimport[0m { prisma } [36mfrom[0m [32m"@/lib/db"[0m;
+  [90m5 |[0m [36mimport[0m bcrypt [36mfrom[0m [32m"bcryptjs"[0m;
+
+The export getServerSession was not found in module [project]/node_modules/next-auth/index.js [app-route] (ecmascript).
+Did you mean to import CredentialsSignin?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the req
+uested export doesn't exist.
+
+
+    at <unknown> (./app/admin/bookings/page.tsx:25:1)
+    at <unknown> (./app/admin/bookings/page.tsx:25:1)
+    at <unknown> (./app/admin/page.tsx:2:1)
+    at <unknown> (./app/api/admin/change-password/route.ts:2:1)

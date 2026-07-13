@@ -1,0 +1,78 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Unit {
+  id          String    @id @default(cuid())
+  nama        String
+  tipe        TipeUnit
+  hargaPerJam Int
+  deskripsi   String?
+  status      StatusUnit @default(AKTIF)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+
+  @@map("units")
+}
+
+model Booking {
+  id             String        @id @default(cuid())
+  kodeBooking    String        @unique
+  unitId         String
+  unit           Unit          @relation(fields: [unitId], references: [id])
+  namaPelanggan  String
+  noHp           String
+  tanggal        DateTime      @db.Date
+  jamMulai       String        // Format: "HH:mm"
+  jamSelesai     String        // Format: "HH:mm"
+  durasiJam      Int
+  totalHarga     Int
+  status         StatusBooking @default(CONFIRMED)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@map("bookings")
+}
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admins")
+}
+
+enum TipeUnit {
+  PS4
+  PS5
+}
+
+enum StatusUnit {
+  AKTIF
+  NONAKTIF
+}
+
+enum StatusBooking {
+  CONFIRMED
+  CANCELLED
+}
